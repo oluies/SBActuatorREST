@@ -8,6 +8,7 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'scala'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
@@ -15,6 +16,11 @@ apply plugin: 'spring-boot'
 jar {
     baseName = 'gs-actuator-service'
     version =  '0.1.0'
+}
+
+ext {
+    scalaMajorVersion = '2.11'
+    scalaVersion = "${scalaMajorVersion}.8"
 }
 
 sourceCompatibility = 1.8
@@ -29,4 +35,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit")
+    testCompile "org.scalatest:scalatest_${scalaMajorVersion}:2.2.4"
+    testCompile "com.typesafe.play:play-json_${scalaMajorVersion}:2.5.6"
 }
