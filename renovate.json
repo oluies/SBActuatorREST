@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "ScalaTest's old milestone naming (2.3.0-SNAP2, -M1, -RC1) is not recognised as a pre-release by Renovate's version comparison, so it gets offered as a stable upgrade. Restrict to plain x.y.z releases. See closed PR #3.",
+      "matchPackageNames": ["org.scalatest:scalatest_2.11"],
+      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+$/"
+    }
   ]
 }
