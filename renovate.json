@@ -1,11 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "enabled": false,
+  "description": [
+    "Renovate is disabled for this repository. build.gradle uses Gradle's removed jetty plugin and the removed compile/testCompile configurations, so the build cannot run on any current Gradle regardless of dependency versions, and there is no CI to validate a bump against.",
+    "The packageRules below are kept as a record of why specific updates were rejected, so they still apply if this is ever re-enabled. See closed PR #3."
   ],
   "packageRules": [
     {
-      "description": "ScalaTest's old milestone naming (2.3.0-SNAP2, -M1, -RC1) is not recognised as a pre-release by Renovate's version comparison, so it gets offered as a stable upgrade. Restrict to plain x.y.z releases. See closed PR #3.",
+      "description": "ScalaTest's old milestone naming (2.3.0-SNAP2, -M1, -RC1) is not recognised as a pre-release by Renovate's version comparison, so it gets offered as a stable upgrade. Restrict to plain x.y.z releases.",
       "matchPackageNames": ["org.scalatest:scalatest_2.11"],
       "allowedVersions": "/^\\d+\\.\\d+\\.\\d+$/"
     }
